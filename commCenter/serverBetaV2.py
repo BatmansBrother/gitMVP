@@ -34,7 +34,7 @@ def broadcast_data (sock, userID, message):
                 time.sleep(1) ## NEED THIS HERE 
                 #content = recv_msg(sock)  # file transfer
                 #print str(content)
-                f = open("/home/carson/commCenter/data/sessionData.txt","w")
+                f = open("/home/gitMVP/commCenter/data/sessionData.txt","w")
                     #print "File opened..."
                 write2file("File opened...")
                 f.write(content)
@@ -193,7 +193,7 @@ def serv():
 
 def write2file(data):
     
-    f = open("/home/carson/commCenter/data/serverData.txt","a")
+    f = open("/home/gitMVP/commCenter/data/serverData.txt","a")
     f.write(data +"\r\n")
     f.close()
     time.sleep(1)   

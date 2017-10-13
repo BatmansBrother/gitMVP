@@ -1,0 +1,12 @@
+source control 
+
+esc : wq
+
+git add -A
+git commit -m "whatever comment you want to add"
+git push     # adds it to the website
+
+
+git pull   #pulls the newest stuff from website
+
+git clone url    #adds the repository to your directory

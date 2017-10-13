@@ -1,0 +1,10 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>coursePlot4.jpg</file>
+    <file>coursePlot3.jpg</file>
+    <file>coursePlot2.jpg</file>
+    <file>coursePlot.jpeg</file>
+    <file>hexlogo4.png</file>
+    <file>LEDgreenScaled.png</file>
+  </qresource>
+</RCC>

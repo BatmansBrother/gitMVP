@@ -1,0 +1,21 @@
+Communications server started on port: 5000
+Retrieving Data...
+File opened...
+File Recieved!
+Retrieving Data...
+Communications server started on port: 7373
+Communications server started on port: 7373
+Communications server started on port: 7373
+Communications server started on port: 7373
+Communications server started on port: 7373
+Communications server started on port: 7373
+Communications server started on port: 7373
+Communications server started on port: 7373
+Communications server started on port: 7373
+Communications server started on port: 7373
+Communications server started on port: 7373
+Communications server started on port: 7373
+Communications server started on port: 7373
+Communications server started on port: 7373
+Communications server started on port: 7373
+Communications server started on port: 7373

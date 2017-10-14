@@ -10,7 +10,7 @@ import struct
 
 my_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 my_socket.connect(("10.0.0.7",7373))
-my_socket.send("FeildCam")
+my_socket.send("MobileMouse")
 #sys.stdout.write('your message: ')
 time.sleep(1)
 my_socket.send("\r\n")
@@ -129,7 +129,10 @@ while True:
                     sys.stdout.write('your message: ')
                     sys.stdout.flush()
             else:
+              try:
                 data = my_socket.recv(1024)
                 print data
-
+                sys.stdout.flush()
+              except:
+                continue
             

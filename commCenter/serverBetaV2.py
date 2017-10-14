@@ -17,7 +17,7 @@ def broadcast_data (sock, userID, message):
         #print userID + message
 
         if 'FeildCam' in userID and 'txt' in message:
-            message = ''
+            #message = ''
             try :
                 sock.send('ack'+'\r') #tell feildCam it can now send the file
                 #time.sleep(1)
@@ -31,10 +31,10 @@ def broadcast_data (sock, userID, message):
                     content = sock.recv(1024)
                     if "[END]" in content:
                         break  #handshake flag
-                time.sleep(1) ## NEED THIS HERE !!!! full one second
+                time.sleep(1) ## NEED THIS HERE 
                 #content = recv_msg(sock)  # file transfer
                 #print str(content)
-                f = open("/home/mccoll/gitMVP/commCenter/data/sessionData.txt","w")
+                f = open("/home/carson/gitMVP/commCenter/data/sessionData.txt","w")
                     #print "File opened..."
                 write2file("File opened...")
                 f.write(content)
@@ -42,7 +42,7 @@ def broadcast_data (sock, userID, message):
                 
                 #print "File received!"
                 write2file("File Recieved!")
-                time.sleep(0.5) #NEED THIS HERE!!!
+                time.sleep(0.5)
                 #return None
             except :
                 # broken socket connection maybe, chat client pressed ctrl+c for example
@@ -68,6 +68,23 @@ def broadcast_data (sock, userID, message):
                 # broken socket connection may be, chat client pressed ctrl+c for example
                 sock.close() #socket.close()
                 CONNECTION_LIST.remove(sock)#socket
+
+        #if socket != server_socket and socket != sock :
+        if 'FeildCam' in userID and '[$]' in message: # hankshake for direct message
+            try :
+                print "here boiii"
+                #print str(CONNECTION_LIST[0])
+
+                #sock.send(message)
+                for socket in CONNECTION_LIST:
+                    if socket != server_socket and socket != sock :
+                        socket.send(message)
+                #CONNECTION_LIST[1].send(message)
+                #CONNECTION_LIST[2].send(message)
+            except :
+                                                        # broken socket connection may be, chat client pressed ctrl+c for example
+                socket.close()
+                CONNECTION_LIST.remove(socket)
         else:
                 return None
              #try :
@@ -119,14 +136,14 @@ server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 def serv():
     # List to keep track of socket descriptors
     global CONNECTION_LIST
-    RECV_BUFFER = 4096 # Advisable to keep it as an exponent of 2
-    PORT = 5000
+    RECV_BUFFER = 1024 # Advisable to keep it as an exponent of 2
+    PORT = 7373
     global server_socket
     # this has no effect, why ?
     server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    server_socket.bind(("10.0.0.10", PORT))
+    server_socket.bind(("10.0.0.7", PORT))
     server_socket.listen(10)
-    server_socket.settimeout(1)
+    #server_socket.settimeout(1)
     # List of client usernames
 
     # Add server socket to the list of readable connections
@@ -155,7 +172,7 @@ def serv():
             elif connections < len(CONNECTION_LIST) :
             # If there is a new client request check if there are on the list         
             # Data recieved from client, process it
-                    authenticate = sock.recv(RECV_BUFFER)
+                    authenticate = sock.recv(1024)
                     
                     if authenticate in clientList:
                         print str(authenticate) + " Connected!"
@@ -173,9 +190,9 @@ def serv():
             # When a TCP program closes abruptly,
             # a "Connection reset by peer" exception will be thrown
                     
-                    data = sock.recv(8)
+                    data = sock.recv(1024)
                     
-                    time.sleep(1)
+                    #time.sleep(1)
                     if data:
                         broadcast_data(sock, '<' +  userDict[str(sock.getpeername())] + '>' ,  data)#,lock)
                     else:
@@ -193,7 +210,7 @@ def serv():
 
 def write2file(data):
     
-    f = open("/home/mccoll/gitMVP/commCenter/data/serverData.txt","a")
+    f = open("/home/carson/gitMVP/commCenter/data/serverData.txt","a")
     f.write(data +"\r\n")
     f.close()
     time.sleep(1)   

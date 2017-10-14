@@ -20,7 +20,7 @@ def broadcast_data (sock, userID, message):
             message = ''
             try :
                 sock.send('ack'+'\r') #tell feildCam it can now send the file
-                time.sleep(1)
+                #time.sleep(1)
                 #print "Retreiving data..."
                 write2file("Retrieving Data...")
                 content = ''
@@ -31,10 +31,10 @@ def broadcast_data (sock, userID, message):
                     content = sock.recv(1024)
                     if "[END]" in content:
                         break  #handshake flag
-                time.sleep(1) ## NEED THIS HERE 
+                time.sleep(1) ## NEED THIS HERE !!!! full one second
                 #content = recv_msg(sock)  # file transfer
                 #print str(content)
-                f = open("/home/gitMVP/commCenter/data/sessionData.txt","w")
+                f = open("/home/mccoll/gitMVP/commCenter/data/sessionData.txt","w")
                     #print "File opened..."
                 write2file("File opened...")
                 f.write(content)
@@ -42,7 +42,7 @@ def broadcast_data (sock, userID, message):
                 
                 #print "File received!"
                 write2file("File Recieved!")
-                time.sleep(1)
+                time.sleep(0.5) #NEED THIS HERE!!!
                 #return None
             except :
                 # broken socket connection maybe, chat client pressed ctrl+c for example
@@ -124,7 +124,7 @@ def serv():
     global server_socket
     # this has no effect, why ?
     server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    server_socket.bind(("10.0.0.2", PORT))
+    server_socket.bind(("10.0.0.10", PORT))
     server_socket.listen(10)
     server_socket.settimeout(1)
     # List of client usernames
@@ -193,7 +193,7 @@ def serv():
 
 def write2file(data):
     
-    f = open("/home/gitMVP/commCenter/data/serverData.txt","a")
+    f = open("/home/mccoll/gitMVP/commCenter/data/serverData.txt","a")
     f.write(data +"\r\n")
     f.close()
     time.sleep(1)   

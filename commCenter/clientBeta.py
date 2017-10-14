@@ -9,7 +9,7 @@ import struct
 
 
 my_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-my_socket.connect(("10.0.0.2",5000))
+my_socket.connect(("10.0.0.10",5000))
 my_socket.send("FeildCam")
 #sys.stdout.write('your message: ')
 time.sleep(1)

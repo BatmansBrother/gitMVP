@@ -207,7 +207,7 @@ class Ui_MainWindow(object):
         self.gridLayout.addWidget(self.picButtonFrame, 3, 1, 1, 1)
         self.hexLabel = QtGui.QLabel(self.centralwidget)
         self.hexLabel.setText(_fromUtf8(""))
-        self.hexLabel.setPixmap(QtGui.QPixmap(_fromUtf8("/home/gitMVP/commCenter/images/hexlogo4.png")))
+        self.hexLabel.setPixmap(QtGui.QPixmap(_fromUtf8("/home/mccoll/gitMVP/commCenter/images/hexlogo4.png")))
         self.hexLabel.setObjectName(_fromUtf8("hexLabel"))
         self.gridLayout.addWidget(self.hexLabel, 0, 0, 1, 1, QtCore.Qt.AlignLeft)
         self.progressBar = QtGui.QProgressBar(self.centralwidget)
@@ -340,19 +340,19 @@ class Ui_MainWindow(object):
 
         self.pic1Label = QtGui.QLabel(self.picFrame)
         self.pic1Label.setText(_fromUtf8(""))
-        self.pic1Label.setPixmap(QtGui.QPixmap(_fromUtf8("/home/gitMVP/commCenter/images/cat.jpg")))
+        self.pic1Label.setPixmap(QtGui.QPixmap(_fromUtf8("/home/mccoll/gitMVP/commCenter/images/cat.jpg")))
         self.pic1Label.setObjectName(_fromUtf8("pic1Label"))
 
         
         self.pic2Label = QtGui.QLabel(self.picFrame)                                                        #Addedd
         self.pic2Label.setText(_fromUtf8(""))																#added
-        self.pic2Label.setPixmap(QtGui.QPixmap(_fromUtf8("/home/gitMVP/commCenter/images/coursePlot.jpeg")))				#added
+        self.pic2Label.setPixmap(QtGui.QPixmap(_fromUtf8("/home/mccoll/gitMVP/commCenter/images/coursePlot.jpeg")))				#added
         self.pic2Label.setObjectName(_fromUtf8("pic2Label"))                                                #added
         
 
         self.pic3Label = QtGui.QLabel(self.picFrame)                                                        #Addedd
         self.pic3Label.setText(_fromUtf8(""))																#added
-        self.pic3Label.setPixmap(QtGui.QPixmap(_fromUtf8("/home/gitMVP/commCenter/images/shroom.jpg")))				#added
+        self.pic3Label.setPixmap(QtGui.QPixmap(_fromUtf8("/home/mccoll/gitMVP/commCenter/images/shroom.jpg")))				#added
         self.pic3Label.setObjectName(_fromUtf8("pic3Label")) 
         
         ###########################   
@@ -393,7 +393,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setObjectName(_fromUtf8("horizontalLayout_2"))
         self.ledLabel = QtGui.QLabel(self.ledFrame)
         self.ledLabel.setText(_fromUtf8(""))
-        self.ledLabel.setPixmap(QtGui.QPixmap(_fromUtf8("/home/gitMVP/commCenter/images/LEDgreenScaled.png")))
+        self.ledLabel.setPixmap(QtGui.QPixmap(_fromUtf8("/home/mccoll/gitMVP/commCenter/images/LEDgreenScaled.png")))
         self.ledLabel.setObjectName(_fromUtf8("ledLabel"))
         self.horizontalLayout_2.addWidget(self.ledLabel)
         self.gridLayout.addWidget(self.ledFrame, 1, 2, 1, 1)
@@ -484,41 +484,41 @@ class Ui_MainWindow(object):
             global oldData3
             global oldData4
 
-            newData = open('/home/gitMVP/commCenter/data/mobileData.txt').read()
+            newData = open('/home/mccoll/gitMVP/commCenter/data/mobileData.txt').read()
             if oldData != newData:
-                with open ("/home/gitMVP/commCenter/data/mobileData.txt", "r") as myfile:
+                with open ("/home/mccoll/gitMVP/commCenter/data/mobileData.txt", "r") as myfile:
                     newData = myfile.read().replace('/n', '')
                 oldData = newData
                 self.mobileText.append(newData)
             #else:
                 #return 0
 
-            newData2 = open('/home/gitMVP/commCenter/data/sessionData.txt').read()
+            newData2 = open('/home/mccoll/gitMVP/commCenter/data/sessionData.txt').read()
             if oldData2 != newData2:
-                with open ("/home/gitMVP/commCenter/data/sessionData.txt", "r") as myfile:
+                with open ("/home/mccoll/gitMVP/commCenter/data/sessionData.txt", "r") as myfile:
                     newData2 = myfile.read().replace('/n', '')
                 oldData2 = newData2
                 self.sessionText.append(newData2)
             #else:
                 #return 0
 
-            newData3 = open('/home/gitMVP/commCenter/data/encoderData.txt').read()
+            newData3 = open('/home/mccoll/gitMVP/commCenter/data/encoderData.txt').read()
             if oldData3 != newData3:
-                with open ("/home/gitMVP/commCenter/data/encoderData.txt", "r") as myfile:
+                with open ("/home/mccoll/gitMVP/commCenter/data/encoderData.txt", "r") as myfile:
                     newData3 = myfile.read().replace('/n', '')
                 oldData3 = newData3
                 self.encodersText.append(newData3)
             #else:
                 #return 0
 
-            newData4 = open('/home/gitMVP/commCenter/data/serverData.txt',"r")
+            newData4 = open('/home/mccoll/gitMVP/commCenter/data/serverData.txt',"r")
             lineList = newData4.readlines()
             newData4.close()
             #print str(len(lineList)) + " old is" + str(oldData4)
             if (len(lineList) > oldData4):
-                #with open ("/home/gitMVP/commCenter/data/serverData.txt", "r") as myfile:
+                #with open ("/home/mccoll/gitMVP/commCenter/data/serverData.txt", "r") as myfile:
                 #newData4 = myfile.read()
-                with open ("/home/gitMVP/commCenter/data/serverData.txt", "r") as myfile:
+                with open ("/home/mccoll/gitMVP/commCenter/data/serverData.txt", "r") as myfile:
                     newData3 = myfile.read().replace('/n', '')
                 oldData4 = len(lineList)
                 #print " old is now" + str(oldData4)
@@ -527,7 +527,7 @@ class Ui_MainWindow(object):
         
     def update_progress(self):
             
-            n = open('/home/gitMVP/commCenter/data/progressBar.txt').read()
+            n = open('/home/mccoll/gitMVP/commCenter/data/progressBar.txt').read()
             
             self.progressBar.setProperty("value" , n)
             

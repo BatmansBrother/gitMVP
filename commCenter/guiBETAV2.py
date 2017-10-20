@@ -490,8 +490,8 @@ class Ui_MainWindow(object):
                     newData = myfile.read().replace('/n', '')
                 oldData = newData
                 self.mobileText.append(newData)
-            #else:
-                #return 0
+            
+                
 
             newData2 = open('/home/carson/gitMVP/commCenter/data/sessionData.txt').read()
             if oldData2 != newData2:
@@ -499,8 +499,8 @@ class Ui_MainWindow(object):
                     newData2 = myfile.read().replace('/n', '')
                 oldData2 = newData2
                 self.sessionText.append(newData2)
-            #else:
-                #return 0
+            
+                
 
             newData3 = open('/home/carson/gitMVP/commCenter/data/encoderData.txt').read()
             if oldData3 != newData3:
@@ -508,20 +508,19 @@ class Ui_MainWindow(object):
                     newData3 = myfile.read().replace('/n', '')
                 oldData3 = newData3
                 self.encodersText.append(newData3)
-            #else:
-                #return 0
+            
+                
 
             newData4 = open('/home/carson/gitMVP/commCenter/data/serverData.txt',"r")
             lineList = newData4.readlines()
             newData4.close()
-            #print str(len(lineList)) + " old is" + str(oldData4)
+            
             if (len(lineList) > oldData4):
-                #with open ("/home/carson/gitMVP/commCenter/data/serverData.txt", "r") as myfile:
-                #newData4 = myfile.read()
+              
                 with open ("/home/carson/gitMVP/commCenter/data/serverData.txt", "r") as myfile:
                     newData3 = myfile.read().replace('/n', '')
                 oldData4 = len(lineList)
-                #print " old is now" + str(oldData4)
+                
                 self.serverText.append(str(lineList[-1]))
             
         
@@ -550,7 +549,7 @@ def guiProc():
     oldData = ''	
     oldData2 = ''
     oldData3 = ''
-    oldData4 = 0
+    oldData4 = ''
     app = QtGui.QApplication(sys.argv)
     MainWindow = QtGui.QMainWindow()
     ui = Ui_MainWindow()
